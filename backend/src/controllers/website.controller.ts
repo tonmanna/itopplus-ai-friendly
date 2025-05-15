@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { Website } from "";
-import { analyzeWebsite } from "../services/analyzer.service";
+import { Website, IWebsite } from "../models/website.model";
+import { analyzeWebsite as analyzeWebsiteService } from "../services/analyzer.service";
 import { validateUrl } from "../utils/validators";
-import { AnalyzeOptions, WebsiteDocument } from "../types/website";
+import { AnalyzeOptions } from "../types/website";
 
 interface AuthRequest extends Request {
   user?: {
