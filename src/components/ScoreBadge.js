@@ -1,28 +1,21 @@
 export default function ScoreBadge({ score }) {
   const getScoreColor = (score) => {
-    if (score >= 81) return "bg-score-green";
-    if (score >= 61) return "bg-score-yellow";
-    return "bg-score-red";
-  };
-
-  const getScoreLabel = (score) => {
-    if (score >= 81) return "Excellent";
-    if (score >= 61) return "Good";
-    return "Needs Improvement";
+    if (score >= 81) return "var(--crayon-green)";
+    if (score >= 61) return "var(--crayon-yellow)";
+    return "var(--crayon-red)";
   };
 
   return (
-    <div className="flex items-center space-x-2">
-      <div
-        className={`${getScoreColor(
-          score
-        )} text-white font-bold rounded-full w-12 h-12 flex items-center justify-center text-lg`}
-      >
-        {score}
-      </div>
-      <span className="text-sm font-medium text-gray-600">
-        {getScoreLabel(score)}
-      </span>
+    <div
+      className="inline-flex items-center px-4 py-2 rounded-full font-bold text-lg bounce-in"
+      style={{
+        backgroundColor: "white",
+        border: `3px solid ${getScoreColor(score)}`,
+        color: getScoreColor(score),
+        boxShadow: "3px 3px 0 rgba(0,0,0,0.1)",
+      }}
+    >
+      {score}
     </div>
   );
 }

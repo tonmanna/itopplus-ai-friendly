@@ -1,6 +1,5 @@
-import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
@@ -9,10 +8,6 @@ const navigation = [
   { name: "Articles", href: "/articles" },
   { name: "About", href: "/about" },
 ];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function Navbar() {
   return (

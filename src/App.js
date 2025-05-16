@@ -12,9 +12,9 @@ import About from "./pages/About";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 m-2">
         <Navbar />
-        <main className="container mx-auto px-4 py-8">
+        <main className="container mx-auto px-4 py-8 my-4">
           <Routes>
             <Route path="/auth/login" element={<Login />} />
             <Route path="/auth/register" element={<Register />} />

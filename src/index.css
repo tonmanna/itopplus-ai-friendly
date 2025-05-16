@@ -2,16 +2,435 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bubblegum+Sans&display=swap");
+
+:root {
+  /* Crayon Color Palette */
+  --crayon-red: #ff595e;
+  --crayon-yellow: #ffca3a;
+  --crayon-green: #8ac926;
+  --crayon-blue: #1982c4;
+  --crayon-purple: #6a4c93;
+  --crayon-pink: #ff99c8;
+  --crayon-orange: #ff924c;
+  --crayon-mint: #7bf1a8;
+}
+
+/* Global Styles */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Comic Neue", cursive;
+  background-color: #fafafa;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bubblegum Sans", cursive;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Button Styles */
+.btn,
+button {
+  position: relative;
+  transition: all 0.3s ease;
+  border: 3px solid currentColor;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Card and Container Styles */
+.card,
+.container {
+  border-radius: 15px;
+  border: 3px solid var(--crayon-purple);
+  background: white;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.bounce-in {
+  animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Table Styles */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th {
+  background: linear-gradient(
+    45deg,
+    var(--crayon-yellow) 0%,
+    var(--crayon-orange) 25%,
+    var(--crayon-pink) 50%,
+    var(--crayon-purple) 75%,
+    var(--crayon-blue) 100%
+  );
+  color: white;
+  font-family: "Bubblegum Sans", cursive;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+th::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 1.5s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+td,
+th {
+  border: 2px solid #333;
+  padding: 12px;
+  position: relative;
+}
+
+tr:hover {
+  background-color: rgba(106, 76, 147, 0.1);
+}
+
+/* Score Badge Colors */
+.score-red {
+  color: var(--crayon-red);
+}
+.score-yellow {
+  color: var(--crayon-yellow);
+}
+.score-green {
+  color: var(--crayon-green);
+}
+
+/* Score Badge Particle Effects */
+.score-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.score-badge:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Successful Score Animation */
+.score-badge.score-high:hover::before {
+  background: radial-gradient(
+    circle at center,
+    var(--crayon-green) 0%,
+    transparent 60%
+  );
+  animation: successPulse 1s ease-out;
+}
+
+@keyframes successPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* Fine Score Animation */
+.score-badge.score-medium:hover::before {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--crayon-yellow) 0%,
+    transparent 10%,
+    transparent 50%
+  );
+  animation: finePulse 1s ease-out;
+}
+
+@keyframes finePulse {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) translateY(-100%);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%) translateY(100%);
+  }
+}
+
+/* Needs Improvement Animation */
+.score-badge.score-low:hover::before {
+  background: repeating-radial-gradient(
+    circle at center,
+    var(--crayon-red) 0%,
+    transparent 20%
+  );
+  animation: improvePulse 1s ease-out;
+}
+
+@keyframes improvePulse {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Score Badge Text Animation */
+.score-badge:hover .score-text {
+  animation: popText 0.3s ease-out;
+}
+
+@keyframes popText {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Score Column Animation */
+.score-column {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.score-column:hover {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(106, 76, 147, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.score-column.active {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(106, 76, 147, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.score-column::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(var(--crayon-purple), 0.1)
+  );
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+
+.score-column:hover::after,
+.score-column.active::after {
+  transform: scaleY(1);
+}
+
+/* Score Column Sparkles */
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--crayon-yellow);
+  animation: sparkle 0.8s ease-in-out;
+}
+
+/* Responsive Table Styles */
+@media (max-width: 768px) {
+  .responsive-table {
+    margin: 0 0.5rem;
+  }
+
+  .responsive-table table {
+    border: 0;
+  }
+
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tr {
+    margin-bottom: 1.5rem;
+    display: block;
+    border: 3px solid var(--crayon-purple);
+    border-radius: 12px;
+    background: white;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .responsive-table td {
+    display: block;
+    text-align: right;
+    padding: 1.25rem;
+    position: relative;
+    border: none;
+    border-bottom: 1px dashed var(--crayon-purple);
+  }
+
+  .responsive-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .responsive-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    color: var(--crayon-purple);
+    font-family: "Bubblegum Sans", cursive;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Card spacing */
+  .card-container {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+/* Add spacing between sections */
+.section-gap {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-gap {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Table Loading State */
+@keyframes shimmerBackground {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-row td {
+  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background-size: 2000px 100%;
+  animation: shimmerBackground 2s linear infinite;
 }
