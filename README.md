@@ -1,73 +1,64 @@
-# AI Friendly Score Application
+# AI Friendly Score Web Application
 
-A web application for scoring and analyzing website AI-friendliness.
+A modern web application for analyzing and scoring websites based on their AI-friendliness. Built with React and Tailwind CSS.
+
+## Features
+
+- Website AI-friendliness scoring system
+- User authentication with social login options
+- Dashboard to view and manage website scores
+- Submit websites for analysis
+- Articles section with AI optimization tips
+- Responsive design for all devices
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/ai-friendly-score.git
+cd ai-friendly-score
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm start
+```
+
+The application will be available at `http://localhost:3000`.
 
 ## Project Structure
 
 ```
-itopplus-ai-friendly/
-├── backend/              # Node.js backend
-│   ├── config/          # Configuration files
-│   ├── controllers/     # Route controllers
-│   ├── models/         # Database models
-│   ├── routes/         # API routes
-│   ├── middleware/     # Custom middleware
-│   └── server.js       # Entry point
-└── frontend/            # Angular frontend
-    ├── src/
-    ├── angular.json
-    └── package.json
+src/
+  ├── components/        # Reusable UI components
+  ├── pages/            # Page components
+  │   ├── auth/         # Authentication pages
+  │   ├── Dashboard.js  # Main dashboard
+  │   ├── Submit.js     # Website submission
+  │   ├── Articles.js   # Articles listing
+  │   └── About.js      # About page
+  ├── App.js           # Main application component
+  └── index.js         # Application entry point
 ```
 
-## Prerequisites
+## Built With
 
-- Node.js (v16 or higher)
-- MongoDB
-- Angular CLI
-
-## Setup Instructions
-
-1. Clone the repository
-2. Install backend dependencies:
-   ```bash
-   npm install
-   ```
-3. Copy `.env.example` to `.env` and configure your environment variables:
-   ```bash
-   cp .env.example .env
-   ```
-4. Install Angular CLI globally:
-   ```bash
-   npm install -g @angular/cli
-   ```
-5. Create and set up the Angular frontend:
-   ```bash
-   ng new frontend --routing --style=scss
-   cd frontend
-   npm install
-   ```
-
-## Development
-
-1. Start the backend server:
-   ```bash
-   npm run dev
-   ```
-2. Start the Angular development server:
-   ```bash
-   cd frontend
-   ng serve
-   ```
-
-The application will be available at:
-
-- Backend API: http://localhost:3000
-- Frontend: http://localhost:4200
-
-## Features
-
-- Social login (Google, Facebook, Microsoft)
-- Website AI-friendliness scoring
-- Dashboard with website scores
-- Article management
-- Responsive design
+- [React](https://reactjs.org/) - Frontend framework
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
+- [React Router](https://reactrouter.com/) - Routing
+- [Headless UI](https://headlessui.dev/) - UI components

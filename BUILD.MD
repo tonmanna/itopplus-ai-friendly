@@ -36,15 +36,12 @@ Create a responsive web application that allows users to view and submit website
 
 **General UI/UX & Technical Considerations:**
 
+- **Focus:** The application should be user-friendly and easy to navigate.
+- **Generate:** The application should be fast and responsive and frontend only.
+
 - **Technology Stack (Suggestion - can be adapted by the AI):**
 
-  - Frontend: React.js or Vue.js (with Tailwind CSS for styling for a modern look and feel).
-
-  - Backend: Node.js with Express.js, or Python with Django/Flask (if backend logic for scoring or user management is to be implemented by the AI).
-
-  - Database: PostgreSQL or MongoDB (if data persistence is needed).
-
-  - Authentication: Use a library like Passport.js (for Node.js) or a similar solution for handling social logins.
+  - Frontend: React.js with Tailwind CSS.
 
 - **Design:**
 
