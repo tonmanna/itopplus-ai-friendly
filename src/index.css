@@ -1,181 +1,565 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bubblegum+Sans&display=swap");
-
+/* 90s Retro Theme Variables */
 :root {
-  /* Crayon Color Palette */
-  --crayon-red: #ff595e;
-  --crayon-yellow: #ffca3a;
-  --crayon-green: #8ac926;
-  --crayon-blue: #1982c4;
-  --crayon-purple: #6a4c93;
-  --crayon-pink: #ff99c8;
-  --crayon-orange: #ff924c;
-  --crayon-mint: #7bf1a8;
+  --retro-black: #222323;
+  --retro-green: #5bf870;
+  --retro-blue: #33b2ff;
+  --retro-purple: #8a5bf8;
+  --retro-pink: #ff71ce;
+  --retro-yellow: #ffdb4c;
+  --retro-orange: #ff9b4c;
+  --retro-red: #ff4c4c;
+  --retro-cyan: #4cfff8;
+  --retro-bg: #1a1b1b;
+  --retro-grid: rgba(33, 240, 255, 0.1);
+  --retro-glow: 0 0 10px rgba(51, 255, 255, 0.5);
+  --retro-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
+  --retro-border: 2px solid var(--retro-cyan);
+}
+
+/* Mario Theme Variables */
+:root {
+  --mario-red: #e52521;
+  --mario-blue: #4a90e2;
+  --mario-yellow: #fbd000;
+  --mario-green: #43b047;
+  --mario-brown: #985f37;
+  --mario-black: #000000;
+  --mario-white: #ffffff;
+  --block-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+  --pixel-border: 4px solid var(--mario-black);
 }
 
 /* Global Styles */
 body {
-  margin: 0;
-  font-family: "Comic Neue", cursive;
-  background-color: #fafafa;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--retro-bg);
+  background-image: linear-gradient(var(--retro-grid) 2px, transparent 2px),
+    linear-gradient(90deg, var(--retro-grid) 2px, transparent 2px);
+  background-size: 30px 30px;
+  color: var(--retro-cyan);
+  font-family: "Press Start 2P", monospace;
+  line-height: 1.6;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
 }
 
+/* Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Bubblegum Sans", cursive;
+  color: var(--retro-green);
+  text-transform: uppercase;
+  text-shadow: var(--retro-glow);
+  letter-spacing: 2px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+/* Input Fields */
+input,
+textarea,
+select {
+  background: var(--retro-black);
+  border: var(--retro-border);
+  color: var(--retro-green);
+  padding: 12px;
+  font-family: "Share Tech Mono", monospace;
+  box-shadow: var(--retro-shadow);
+  transition: all 0.3s ease;
 }
 
-/* Button Styles */
-.btn,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--retro-pink);
+  box-shadow: var(--retro-glow);
+}
+
+/* Buttons */
 button {
+  background: var(--retro-purple);
+  border: var(--retro-border);
+  color: var(--retro-cyan);
+  text-transform: uppercase;
+  padding: 12px 24px;
+  font-family: "Press Start 2P", monospace;
+  cursor: pointer;
   position: relative;
-  transition: all 0.3s ease;
-  border: 3px solid currentColor;
-  border-radius: 12px;
-  background: white;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--retro-shadow);
+  transition: all 0.2s ease;
 }
 
-.btn:hover,
 button:hover {
+  background: var(--retro-pink);
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.8);
 }
 
-/* Card and Container Styles */
-.card,
-.container {
-  border-radius: 15px;
-  border: 3px solid var(--crayon-purple);
-  background: white;
-  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
-}
-
-/* Animation Classes */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
-.bounce-in {
-  animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.3);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Table Styles */
+/* Tables */
 table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
+  border: var(--retro-border);
+  background: var(--retro-black);
+  box-shadow: var(--retro-shadow);
 }
 
 th {
-  background: linear-gradient(
-    45deg,
-    var(--crayon-yellow) 0%,
-    var(--crayon-orange) 25%,
-    var(--crayon-pink) 50%,
-    var(--crayon-purple) 75%,
-    var(--crayon-blue) 100%
-  );
-  color: white;
-  font-family: "Bubblegum Sans", cursive;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
+  background: var(--retro-purple);
+  color: var(--retro-cyan);
+  text-transform: uppercase;
+  padding: 15px;
+  border-bottom: var(--retro-border);
 }
 
-th::after {
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--retro-grid);
+  color: var(--retro-green);
+}
+
+tr:hover {
+  background: rgba(51, 255, 255, 0.1);
+}
+
+/* Mario Menu Styles */
+.crayon-menu {
+  background: var(--mario-blue);
+  border-bottom: var(--pixel-border);
+  padding: 0.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.menu-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+/* Enhanced Nav Title Styles */
+.menu-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.5rem;
+  position: relative;
+  color: transparent;
+  background: linear-gradient(
+    45deg,
+    var(--mario-yellow) 0%,
+    var(--mario-red) 25%,
+    var(--mario-green) 50%,
+    var(--mario-blue) 75%,
+    var(--mario-yellow) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: rainbow-move 4s linear infinite;
+  text-shadow: 3px 3px 0 var(--mario-black), 6px 6px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.menu-title::before {
+  content: "★";
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mario-yellow);
+  text-shadow: 2px 2px 0 var(--mario-black);
+  animation: star-spin 2s linear infinite;
+}
+
+.menu-title::after {
+  content: "★";
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mario-yellow);
+  text-shadow: 2px 2px 0 var(--mario-black);
+  animation: star-spin 2s linear infinite reverse;
+}
+
+/* Sparkle Effect */
+.menu-title .sparkle {
+  position: absolute;
+  pointer-events: none;
+  animation: sparkle-fade 1s linear forwards;
+}
+
+@keyframes sparkle-fade {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes rainbow-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes star-spin {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+/* Hover Effects */
+.menu-title:hover {
+  transform: perspective(500px) rotateX(10deg) scale(1.1);
+}
+
+.menu-title:hover::before,
+.menu-title:hover::after {
+  animation-duration: 1s;
+}
+
+/* Power-up Effect */
+@keyframes power-up {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.menu-title.power-up {
+  animation: power-up 0.3s ease;
+}
+
+/* Pixel Border Effect */
+.menu-title-container {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+}
+
+.menu-title-container::before {
   content: "";
   position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--mario-red),
+    var(--mario-yellow),
+    var(--mario-green),
+    var(--mario-blue)
+  );
+  z-index: -1;
+  animation: border-rotate 2s linear infinite;
+  border-radius: 4px;
+}
+
+@keyframes border-rotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.menu-items {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.menu-item {
+  font-family: "Press Start 2P", monospace;
+  color: var(--mario-white);
+  text-decoration: none;
+  background: var(--mario-red);
+  padding: 0.75rem 1.5rem;
+  border: var(--pixel-border);
+  position: relative;
+  transition: all 0.2s ease;
+  box-shadow: var(--block-shadow);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.menu-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 8px 0px rgba(0, 0, 0, 0.8);
+  background: var(--mario-yellow);
+  color: var(--mario-black);
+}
+
+.menu-item:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+}
+
+.menu-item.active {
+  background: var(--mario-green);
+  color: var(--mario-white);
+}
+
+.menu-button {
+  background: var(--mario-red);
+  border: var(--pixel-border);
+  padding: 0.5rem;
+  box-shadow: var(--block-shadow);
+  cursor: pointer;
+  display: none;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  .menu-items {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--mario-blue);
+    border: var(--pixel-border);
+    padding: 1rem;
+    flex-direction: column;
+    min-width: 200px;
+    box-shadow: var(--block-shadow);
+  }
+
+  .menu-items.open {
+    display: flex;
+  }
+
+  .menu-item {
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Coin Animation */
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Question Block Animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.menu-item:hover::before {
+  content: "?";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--mario-yellow);
+  animation: bounce 0.5s ease infinite;
+  text-shadow: 2px 2px 0 var(--mario-black);
+}
+
+/* Score Badge */
+.score-badge {
+  background: var(--retro-black);
+  border: var(--retro-border);
+  box-shadow: var(--retro-glow);
+  font-family: "Press Start 2P", monospace;
+}
+
+/* Animations */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanline {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.1) 100%
+    to bottom,
+    transparent,
+    rgba(51, 255, 255, 0.1),
+    transparent
   );
-  transform: translateX(-100%);
-  animation: shimmer 1.5s ease-out forwards;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+  z-index: 9999;
 }
 
-@keyframes shimmer {
+/* Card Styles */
+.card {
+  background: var(--retro-black);
+  border: var(--retro-border);
+  box-shadow: var(--retro-shadow);
+  padding: 20px;
+  margin: 15px;
+}
+
+/* Loading Animation */
+.loading::after {
+  content: "";
+  animation: loading 1s steps(4) infinite;
+}
+
+@keyframes loading {
   0% {
-    transform: translateX(-100%);
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+}
+
+/* Responsive Table Styles */
+@media (max-width: 768px) {
+  .responsive-table {
+    margin: 0 0.5rem;
+  }
+
+  .responsive-table table {
+    border: 0;
+  }
+
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tr {
+    margin-bottom: 1.5rem;
+    display: block;
+    border: 3px solid var(--retro-cyan);
+    border-radius: 12px;
+    background: var(--retro-black);
+    box-shadow: var(--retro-shadow);
+  }
+
+  .responsive-table td {
+    display: block;
+    text-align: right;
+    padding: 1.25rem;
+    position: relative;
+    border: none;
+    border-bottom: 1px dashed var(--retro-cyan);
+  }
+
+  .responsive-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .responsive-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    color: var(--retro-cyan);
+    font-family: "Press Start 2P", monospace;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Card spacing */
+  .card-container {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+/* Add spacing between sections */
+.section-gap {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-gap {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Table Loading State */
+@keyframes shimmerBackground {
+  0% {
+    background-position: -1000px 0;
   }
   100% {
-    transform: translateX(100%);
-    opacity: 0;
+    background-position: 1000px 0;
   }
 }
 
-td,
-th {
-  border: 2px solid #333;
-  padding: 12px;
-  position: relative;
-}
-
-tr:hover {
-  background-color: rgba(106, 76, 147, 0.1);
+.loading-row td {
+  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background-size: 2000px 100%;
+  animation: shimmerBackground 2s linear infinite;
 }
 
 /* Score Badge Colors */
 .score-red {
-  color: var(--crayon-red);
+  color: var(--retro-red);
 }
 .score-yellow {
-  color: var(--crayon-yellow);
+  color: var(--retro-yellow);
 }
 .score-green {
-  color: var(--crayon-green);
+  color: var(--retro-green);
 }
 
 /* Score Badge Particle Effects */
@@ -198,7 +582,7 @@ tr:hover {
 .score-badge.score-high:hover::before {
   background: radial-gradient(
     circle at center,
-    var(--crayon-green) 0%,
+    var(--retro-green) 0%,
     transparent 60%
   );
   animation: successPulse 1s ease-out;
@@ -222,7 +606,7 @@ tr:hover {
 .score-badge.score-medium:hover::before {
   background: repeating-linear-gradient(
     45deg,
-    var(--crayon-yellow) 0%,
+    var(--retro-yellow) 0%,
     transparent 10%,
     transparent 50%
   );
@@ -247,7 +631,7 @@ tr:hover {
 .score-badge.score-low:hover::before {
   background: repeating-radial-gradient(
     circle at center,
-    var(--crayon-red) 0%,
+    var(--retro-red) 0%,
     transparent 20%
   );
   animation: improvePulse 1s ease-out;
@@ -319,7 +703,7 @@ tr:hover {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(var(--crayon-purple), 0.1)
+    rgba(var(--retro-purple), 0.1)
   );
   transform: scaleY(0);
   transform-origin: top;
@@ -349,88 +733,663 @@ tr:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: var(--crayon-yellow);
+  background-color: var(--retro-yellow);
   animation: sparkle 0.8s ease-in-out;
 }
 
-/* Responsive Table Styles */
+/* Articles Page Styles */
+.articles-container {
+  padding: 2rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.articles-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--retro-black);
+  border: var(--pixel-border);
+  box-shadow: var(--block-shadow);
+}
+
+.articles-title {
+  font-family: "Press Start 2P", monospace;
+  color: var(--mario-yellow);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 var(--mario-black);
+}
+
+.articles-subtitle {
+  color: var(--retro-cyan);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1.1rem;
+}
+
+.articles-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 1rem;
+}
+
+.article-card {
+  background: var(--retro-black);
+  border: var(--pixel-border);
+  box-shadow: var(--block-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.article-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8);
+}
+
+.article-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+}
+
+.article-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover .article-image {
+  transform: scale(1.05);
+}
+
+.article-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+}
+
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-family: "Share Tech Mono", monospace;
+  color: var(--mario-yellow);
+  font-size: 0.9rem;
+}
+
+.article-card-title {
+  font-family: "Press Start 2P", monospace;
+  color: var(--retro-cyan);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.article-excerpt {
+  color: var(--retro-green);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.article-author {
+  font-family: "Press Start 2P", monospace;
+  color: var(--mario-red);
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--retro-grid);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .responsive-table {
+  .articles-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .articles-header {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .articles-title {
+    font-size: 1.5rem;
+  }
+
+  .articles-subtitle {
+    font-size: 1rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .article-card {
     margin: 0 0.5rem;
   }
 
-  .responsive-table table {
-    border: 0;
+  .article-card-title {
+    font-size: 1rem;
   }
 
-  .responsive-table thead {
-    display: none;
-  }
-
-  .responsive-table tr {
-    margin-bottom: 1.5rem;
-    display: block;
-    border: 3px solid var(--crayon-purple);
-    border-radius: 12px;
-    background: white;
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  .responsive-table td {
-    display: block;
-    text-align: right;
-    padding: 1.25rem;
-    position: relative;
-    border: none;
-    border-bottom: 1px dashed var(--crayon-purple);
-  }
-
-  .responsive-table td:last-child {
-    border-bottom: 0;
-  }
-
-  .responsive-table td::before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    color: var(--crayon-purple);
-    font-family: "Bubblegum Sans", cursive;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Card spacing */
-  .card-container {
-    display: grid;
-    gap: 1.5rem;
-    padding: 1rem;
+  .article-excerpt {
+    font-size: 0.9rem;
   }
 }
 
-/* Add spacing between sections */
-.section-gap {
-  margin-top: 2rem;
+/* Hover Effects */
+.article-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--mario-red), var(--mario-blue));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.article-card:hover::before {
+  opacity: 1;
+}
+
+/* Score Gauge Styles */
+.score-badge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.score-gauge {
+  position: relative;
+  width: 120px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.gauge-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--retro-black);
+  border-radius: 120px 120px 0 0;
+  overflow: hidden;
+  border: var(--pixel-border);
+  box-shadow: var(--block-shadow);
+}
+
+.gauge-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--mario-red);
+  transform-origin: bottom center;
+  transition: transform 1s ease-out;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.gauge-cover {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: var(--retro-black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--pixel-border);
+  z-index: 2;
+}
+
+.gauge-value {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1rem;
+  color: var(--mario-white);
+  text-shadow: 1px 1px 0 var(--mario-black);
+}
+
+.gauge-markers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.marker {
+  position: absolute;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--mario-white);
+}
+
+.marker-0 {
+  left: 0;
+  bottom: 0;
+}
+
+.marker-60 {
+  left: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.marker-90 {
+  right: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.marker-100 {
+  right: 0;
+  bottom: 0;
+}
+
+.score-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  animation: pulse 2s infinite;
+}
+
+.score-label.score-high {
+  color: var(--mario-green);
+}
+
+.score-label.score-medium {
+  color: var(--mario-yellow);
+}
+
+.score-label.score-low {
+  color: var(--mario-red);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Gauge */
+@media (max-width: 768px) {
+  .score-gauge {
+    width: 100px;
+    height: 50px;
+  }
+
+  .gauge-cover {
+    width: 50px;
+    height: 50px;
+  }
+
+  .gauge-value {
+    font-size: 0.875rem;
+  }
+
+  .marker {
+    font-size: 0.7rem;
+  }
+
+  .score-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Login Page Styles */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--retro-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent 0%, var(--retro-grid) 2px) 0 0 / 50px
+      50px,
+    linear-gradient(90deg, transparent 0%, var(--retro-grid) 2px) 0 0 / 50px
+      50px;
+  transform: perspective(500px) rotateX(60deg);
+  animation: grid-move 20s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(50px);
+  }
+}
+
+.login-box {
+  background: var(--mario-black);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  border: var(--pixel-border);
+  box-shadow: var(--block-shadow);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.login-header {
+  text-align: center;
   margin-bottom: 2rem;
 }
 
-@media (min-width: 768px) {
-  .section-gap {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+.login-title {
+  font-family: "Press Start 2P", monospace;
+  color: var(--mario-yellow);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 var(--mario-black);
+}
+
+.pixel-divider {
+  height: 4px;
+  background: var(--mario-red);
+  margin: 1rem auto;
+  width: 80%;
+  position: relative;
+}
+
+.pixel-divider::before,
+.pixel-divider::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--mario-yellow);
+  top: -2px;
+}
+
+.pixel-divider::before {
+  left: -4px;
+}
+
+.pixel-divider::after {
+  right: -4px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-family: "Press Start 2P", monospace;
+  color: var(--mario-white);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.required-star {
+  color: var(--mario-red);
+  animation: pulse 2s infinite;
+}
+
+.form-input {
+  background: var(--retro-black);
+  border: var(--pixel-border);
+  padding: 0.75rem 1rem;
+  color: var(--mario-white);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--mario-blue);
+  box-shadow: 0 0 0 2px var(--mario-blue);
+}
+
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgot-link {
+  font-family: "Press Start 2P", monospace;
+  color: var(--mario-yellow);
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: var(--mario-red);
+}
+
+.login-button {
+  background: var(--mario-red);
+  color: var(--mario-white);
+  font-family: "Press Start 2P", monospace;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.login-button:hover::before {
+  left: 100%;
+}
+
+.button-text {
+  position: relative;
+  z-index: 1;
+}
+
+.button-icon {
+  font-size: 1.25rem;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.google-button,
+.github-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: var(--pixel-border);
+  font-family: "Share Tech Mono", monospace;
+  transition: all 0.3s ease;
+}
+
+.google-button {
+  background: var(--mario-white);
+  color: var(--mario-black);
+}
+
+.github-button {
+  background: var(--retro-black);
+  color: var(--mario-white);
+}
+
+.google-icon,
+.github-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.register-prompt {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.prompt-text {
+  color: var(--mario-white);
+  font-family: "Share Tech Mono", monospace;
+}
+
+.register-link {
+  color: var(--mario-green);
+  text-decoration: none;
+  font-family: "Press Start 2P", monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.register-link:hover {
+  color: var(--mario-yellow);
+}
+
+.link-icon {
+  font-size: 1.25rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.25rem;
+  }
+
+  .form-label {
+    font-size: 0.75rem;
+  }
+
+  .form-input {
+    font-size: 0.875rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .forgot-link {
+    font-size: 0.625rem;
+  }
+
+  .login-button {
+    padding: 0.875rem;
+  }
+
+  .button-text {
+    font-size: 0.875rem;
+  }
+
+  .social-login {
+    gap: 0.75rem;
+  }
+
+  .google-button,
+  .github-button {
+    padding: 0.625rem;
+    font-size: 0.875rem;
+  }
+
+  .register-link {
+    font-size: 0.75rem;
   }
 }
 
-/* Table Loading State */
-@keyframes shimmerBackground {
-  0% {
-    background-position: -1000px 0;
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .login-button::before {
+    display: none;
   }
-  100% {
-    background-position: 1000px 0;
-  }
-}
 
-.loading-row td {
-  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
-  background-size: 2000px 100%;
-  animation: shimmerBackground 2s linear infinite;
+  .login-button:active {
+    transform: scale(0.98);
+  }
+
+  .google-button:active,
+  .github-button:active {
+    opacity: 0.8;
+  }
 }
